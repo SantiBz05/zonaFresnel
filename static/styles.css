@@ -1,0 +1,170 @@
+/* Fondo base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #fff;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* GIF izquierdo */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+  background: url('fondo.gif') no-repeat center center;
+  background-size: cover;
+  opacity: 1;
+  z-index: 0;
+}
+
+/* GIF derecho */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background: url('fondo.gif') no-repeat center center;
+  background-size: cover;
+  transform: scaleX(-1);
+  opacity: 1;
+  z-index: 0;
+}
+
+/* Contenido centrado */
+.contenido {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Título */
+h1 {
+  color: #005f73;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2.2em;
+}
+
+/* Subtítulo */
+h4 {
+  color: #0a9396;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Formulario */
+form {
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 850%;
+  max-width: 380px;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0, 95, 115, 0.3);
+  border: 2px solid #94d2bd;
+  color: #001219;
+}
+
+/* Etiquetas */
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  color: #005f73;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 8px;
+  margin-bottom: 20px;
+  border: 2px solid #94d2bd;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #e8f1f5;
+  color: #001219;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #005f73;
+  outline: none;
+}
+
+/* Botón */
+button {
+  width: 100%;
+  background-color: #0a9396;
+  color: white;
+  font-size: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005f73;
+}
+
+/* Resultado */
+.resultado {
+  color: #0a662a;
+  background-color: #d1f3d1;
+  border: 1px solid #0a662a;
+  padding: 12px;
+  max-width: 480px;
+  margin: 20px auto;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Error */
+.error {
+  color: #b00020;
+  background-color: #fddede;
+  border: 1px solid #b00020;
+  padding: 12px;
+  max-width: 480px;
+  margin: 20px auto;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Otros textos */
+p {
+  max-width: 480px;
+  margin: 20px auto;
+  background-color: #94d2bd;
+  color: #001219;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}

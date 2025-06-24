@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora Zona Fresnel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="contenido">
+    <h1>Calculadora de la Primera Zona de Fresnel</h1>
+    <h4>Santiago Baez - Comisión A - 2025</h4>
+
+    <form method="post">
+      <label for="distancia">Distancia (km):</label>
+      <input
+        type="text"
+        step="any"
+        name="distancia"
+        id="distancia"
+        placeholder="Distancia en km"
+        required
+      />
+
+      <label for="frecuencia">Frecuencia (GHz):</label>
+      <input
+        type="text"
+        step="any"
+        name="frecuencia"
+        id="frecuencia"
+        placeholder="Frecuencia en GHz"
+        required
+      />
+
+      <button type="submit">Calcular</button>
+    </form>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% elif resultado %}
+      <div class="resultado">{{ resultado }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
