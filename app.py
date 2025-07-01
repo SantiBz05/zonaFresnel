@@ -35,10 +35,14 @@ def index():
             error = "La distancia y la frecuencia deben ser mayores a cero."
             return render_template('index.html', resultado=resultado, error=error)
 
-        # Calcular zona Fresnel
+        # Calcular zona Fresnel y margen de 40%
         try:
             fresnel = 8.656 * math.sqrt(distancia / frecuencia)
-            resultado = f"La Zona de Fresnel es igual a {fresnel:.2f} metros"
+            margen = fresnel * 0.4
+            resultado = (
+                f"La Zona de Fresnel es igual a {fresnel:.2f} metros.<br>"
+                f"La altura máxima permitida del obstáculo es de {margen:.2f} metros antes de fallar el enlace."
+            )
         except Exception as e:
             error = f"Error al calcular la zona de Fresnel: {e}"
 

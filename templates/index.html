@@ -9,6 +9,8 @@
   <div class="contenido">
     <h1>Calculadora de la Primera Zona de Fresnel</h1>
     <h4>Santiago Baez - Comisión A - 2025</h4>
+    <h4>Formula que se emplea para el calculo</h4>
+    <img src="{{ url_for('static', filename='formula.png') }}" alt="Fórmula de Fresnel" style="max-width: 100%; margin-bottom: 20px;" />
 
     <form method="post">
       <label for="distancia">Distancia (km):</label>
@@ -36,9 +38,41 @@
 
     {% if error %}
       <div class="error">{{ error }}</div>
-    {% elif resultado %}
-      <div class="resultado">{{ resultado }}</div>
     {% endif %}
+
+    {% if resultado %}
+      <div class="resultado">{{ resultado|safe }}</div>
+    {% endif %}
+    <table class="tabla-datos">
+      <thead>
+        <tr>
+          <th>Valor de Frecuencia</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2.4 GHz</td>
+          <td>Uso común en redes Wi-Fi, Bluetooth, dispositivos inalámbricos (teclados, ratones), y algunos sistemas de microondas.</td>
+        </tr>
+        <tr>
+          <td>5 GHz</td>
+          <td>Utilizada en redes Wi-Fi (802.11a/n/ac/ax), algunos sistemas de radar y comunicaciones móviles de alta velocidad.</td>
+        </tr>
+        <tr>
+          <td>60 GHz</td>
+          <td>Frecuencia utilizada en tecnologías de comunicación inalámbrica de corto alcance como WiGig (Wi-Fi en 60 GHz) para redes de datos ultrarrápidas.</td>
+        </tr>
+        <tr>
+          <td>24 GHz</td>
+          <td>Empleada en sistemas de radar para vehículos autónomos, sensores de proximidad y aplicaciones de comunicaciones de corto alcance.</td>
+        </tr>
+        <tr>
+          <td>28 GHz</td>
+          <td>Frecuencia clave para comunicaciones 5G de banda ancha, proporcionando altas velocidades y baja latencia.</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>
